@@ -1,8 +1,7 @@
-from datetime import date
 from decimal import Decimal
 
 from brass.allocators import slab, step
-from brass.bands import band_factory
+from brass.band_factory import band_factory
 
 old_rates = band_factory(
     (

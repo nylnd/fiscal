@@ -1,7 +1,7 @@
 from .abstract_calculation import AbstractCalculation
 
 
-class SimpleCalculation(AbstractCalculation):
+class Calculation(AbstractCalculation):
     def __init__(self, bands, taxable_amount):
         self._bands = bands
         self._taxable_amount = taxable_amount
