@@ -30,7 +30,7 @@ def test_step_allocator_on_threshold():
     )
 
 
-def test_step_allocator_allocation_just_over_threshold():
+def test_step_allocator_allocation_just_over_top_threshold():
     allocation = stepped_bands.allocate(Decimal("250001"))
     assert allocation == (
         (Decimal("150000"), Decimal("0")),
@@ -65,6 +65,16 @@ def test_slab_allocator_on_band_threshold():
         (Decimal("0"), Decimal("0")),
         (Decimal("250000"), Decimal("1")),
         (Decimal("0"), Decimal("3")),
+        (Decimal("0"), Decimal("4")),
+    )
+
+
+def test_slab_allocator_just_over_band_threshold():
+    allocation = slabbed_bands.allocate(Decimal("250001"))
+    assert allocation == (
+        (Decimal("0"), Decimal("0")),
+        (Decimal("0"), Decimal("1")),
+        (Decimal("250001"), Decimal("3")),
         (Decimal("0"), Decimal("4")),
     )
 
