@@ -1,24 +1,22 @@
 from decimal import Decimal
 
-from brass.allocators import slab, step
 from brass.band_factory import band_factory
+from brass.bands import SlabbedBands, SteppedBands
 
-old_rates = band_factory(
+old_rates = SlabbedBands(
     (
-        (
-            (150_000, 0),
-            (100_000, 1),
-            (250_000, 3),
-            ("Infinity", 4),
-        ),
-        slab,
+        (150_000, 0),
+        (100_000, 1),
+        (250_000, 3),
+        ("Infinity", 4),
     )
 )
 
-modern_rates = band_factory(
+modern_rates = SteppedBands(
     (
-        ((150_000, 0), (100_000, 2), ("Infinity", 5)),
-        step,
+        (150_000, 0),
+        (100_000, 2),
+        ("Infinity", 5),
     )
 )
 

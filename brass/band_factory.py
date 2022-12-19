@@ -7,7 +7,7 @@ def band_factory(args):
     factory method for the creation of Bands
     """
 
-    values, allocator = args
+    *values, allocator = args
     if allocator is slab:
         return SlabbedBands(values)
     else:
