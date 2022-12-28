@@ -1,10 +1,11 @@
 from decimal import Decimal
+from itertools import accumulate
 from typing import Any, Callable, Tuple
 
 
 def step(amount: Decimal, bands: list[Decimal]) -> tuple[tuple[Decimal, Any], ...]:
     """
-    Step allocations work by allocating the amount to the amounts in bands, in order, until nothing is left.
+    Step liabilities work by allocating the amount to the incremental thresholds, in order, until nothing is left.
     """
 
     def allocable(amount: Decimal) -> Callable[[Decimal], Decimal]:
@@ -22,9 +23,11 @@ def step(amount: Decimal, bands: list[Decimal]) -> tuple[tuple[Decimal, Any], ..
 
 def slab(amount: Decimal, bands: list[Decimal]) -> tuple[tuple[Decimal, Any], ...]:
     """
-    Slab allocations work by comparing the provided amount with the cumulative threshold at a given band.
-    In the band when the amount first exceeds the cumulative threshold of a band, the amount is allocated to the next band.
+    Slab liabilities work by comparing the provided amount with the *cumulative* threshold of a given band.
+    when the amount first exceeds a cumulative threshold of a band, all the amount is allocated to that band.
     """
+
+    cumulative_bands = zip(accumulate(t for t, _ in bands), (p for _, p in bands))
 
     def allocable(amount: Decimal) -> Callable[[Decimal], Decimal]:
         def allocate_to(threshold):
@@ -37,11 +40,5 @@ def slab(amount: Decimal, bands: list[Decimal]) -> tuple[tuple[Decimal, Any], ..
 
         return allocate_to
 
-    running_total = 0
-    cumulative_thresholds = (
-        running_total := running_total + threshold for threshold, _ in bands
-    )
     allocable_amount = allocable(amount)
-    return tuple(
-        zip((allocable_amount(t) for t in cumulative_thresholds), (p for _, p in bands))
-    )
+    return tuple((allocable_amount(t), p) for t, p in cumulative_bands)

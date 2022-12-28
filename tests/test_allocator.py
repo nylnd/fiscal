@@ -1,6 +1,5 @@
 from decimal import Decimal
 
-from brass.band_factory import band_factory
 from brass.bands import SlabbedBands, SteppedBands
 
 slabbed_bands = SlabbedBands(
@@ -11,6 +10,7 @@ slabbed_bands = SlabbedBands(
         ("Infinity", 4),
     )
 )
+
 
 stepped_bands = SteppedBands(
     (
