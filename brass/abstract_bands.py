@@ -6,7 +6,7 @@ from typing import Callable, Tuple
 
 class AbstractBands(abc.ABC):
     """
-    Accepts a tuple of two-tuples.  Each two-tuple comprises two number-like elements,
+    Accepts a tuple of two-tuples.  Each two-tuple comprises two number-like elements:
     an incremental threshold, and a percentage that applies until that incremental threshold is breached.
     """
 
@@ -29,7 +29,4 @@ class AbstractBands(abc.ABC):
 
     @property
     def values(self) -> Tuple[Tuple[Decimal, Decimal], ...]:
-        """
-        comprised of a tuple of tuples of Decimals: in each tuple there is a threshold and a percentage
-        """
         return self._values
