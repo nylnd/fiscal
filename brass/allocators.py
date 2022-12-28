@@ -27,7 +27,7 @@ def slab(amount: Decimal, bands: list[Decimal]) -> tuple[tuple[Decimal, Any], ..
     when the amount first exceeds a cumulative threshold of a band, all the amount is allocated to that band.
     """
 
-    cumulative_bands = zip(accumulate(t for t, _ in bands), (p for _, p in bands))
+    bands = zip(accumulate(t for t, _ in bands), (p for _, p in bands))
 
     def allocable(amount: Decimal) -> Callable[[Decimal], Decimal]:
         def allocate_to(threshold):
@@ -41,4 +41,4 @@ def slab(amount: Decimal, bands: list[Decimal]) -> tuple[tuple[Decimal, Any], ..
         return allocate_to
 
     allocable_amount = allocable(amount)
-    return tuple((allocable_amount(t), p) for t, p in cumulative_bands)
+    return tuple((allocable_amount(t), p) for t, p in bands)
