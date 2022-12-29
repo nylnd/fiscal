@@ -70,5 +70,5 @@ Where the taxable amount was £300,000, the applicable percentage was **3%**.
 | Cumulative Threshold | Amount   | Percentage | Liability |
 |----------------------|----------|------------|-----------|
 | £150,000             |          | 0%         | £0        |
-| £250,000             |          | 1%         | £2,000    |
-| £500,000             | £300,000 | 3%         | £0        |
+| £250,000             |          | 1%         | £0        |
+| £500,000             | £300,000 | 3%         | £9,000    |
