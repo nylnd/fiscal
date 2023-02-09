@@ -32,7 +32,7 @@ The applicable bands for a commercial transaction were, after 17 March 2017, as 
 This can be represented by a band as follows:
 
 ``` python-console
-    stepped_bands = SteppedBands((150_000, 0),(100_000, 2),("Infinity", 5))
+stepped_bands = SteppedBands(((150_000, 0),(100_000, 2),("Infinity", 5)))
 ```
 
 
@@ -45,12 +45,12 @@ The bands are allocated on the step basis, so £1m would be allocated as follows
 | £750,000  | 5%         | £37,500   |
 
 ``` python-console
-    allocation = stepped_bands.allocate(1_000_000)
-    assert allocation == (
-        (Decimal("150000"), Decimal("0")),
-        (Decimal("100000"), Decimal("2")),
-        (Decimal("750000"), Decimal("5")),
-    ) # True
+allocation = stepped_bands.allocate(1_000_000)
+assert allocation == (
+    (Decimal("150000"), Decimal("0")),
+    (Decimal("100000"), Decimal("2")),
+    (Decimal("750000"), Decimal("5")),
+) # True
 
 ```
 
