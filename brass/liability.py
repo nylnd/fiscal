@@ -1,12 +1,13 @@
 from decimal import Decimal
 
+from .abstract_bands import AbstractBands
 from .abstract_liability import AbstractLiability
 
 
 class Liability(AbstractLiability):
-    def __init__(self, bands, taxable_amount):
+    def __init__(self, bands: AbstractBands, taxable_amount: int | float | Decimal):
         self._bands = bands
-        self._taxable_amount = taxable_amount
+        self._taxable_amount = Decimal(taxable_amount)
 
     @property
     def taxable_amount(self):

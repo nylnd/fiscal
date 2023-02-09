@@ -5,7 +5,7 @@ from typing import Any, Callable, Tuple
 
 def step(amount: Decimal, bands: list[Decimal]) -> tuple[tuple[Decimal, Any], ...]:
     """
-    Step liabilities work by allocating the amount to the incremental thresholds, in order, until nothing is left.
+    Step liabilities work by allocating the amount to the incremental thresholds of a given band, in order, until nothing is left.
     """
 
     def allocable(amount: Decimal) -> Callable[[Decimal], Decimal]:
