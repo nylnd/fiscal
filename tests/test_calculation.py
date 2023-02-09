@@ -1,8 +1,8 @@
 from decimal import Decimal
 from math import inf
 
-from brass.bands import SlabbedBands, SteppedBands
-from brass.liability import Liability
+from fiscal.bands import SlabbedBands, SteppedBands
+from fiscal.liability import Liability
 
 
 def test_calculation_slabbed_bands_threshold_not_breached():

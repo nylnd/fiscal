@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-from brass.bands import SlabbedBands, SteppedBands
+from fiscal.bands import SlabbedBands, SteppedBands
 
 slabbed_bands = SlabbedBands(
     (

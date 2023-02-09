@@ -1,12 +1,11 @@
-# Brass
-## Brass bands, brass ~~tacks~~tax.
-### A simple, systematic tax liability calculator
+# Fiscal
+## A simple, systematic tax liability calculator
 
-Brass is a simple, systematic tax calculator with soft-coded rate bands.  Specifically, Brass aims to side-step the commonly-seen behaviour of using 'if' statements in tax calculators, and relying on hard-coded tax bands. 
+Fiscal is a simple, systematic tax calculator with soft-coded rate bands.  Specifically, Fiscal aims to side-step the commonly-seen behaviour of using 'if' statements in tax calculators, and relying on hard-coded tax bands. 
 
-### Brass, broken down
+### Fiscal, broken down
 
-There are two key elements to Brass.
+There are two key elements to Fiscal.
 
 1) Bands - a stream of pairwise tuples (a threshold, a percentage) with an 'allocator'. The allocator dictates the manner in which taxable amounts are allocated between the threshold element of each band - the two predominant forms of allocator are provided:
     - 'step', which reflects the most common allocation; and 
