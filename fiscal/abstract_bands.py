@@ -6,8 +6,10 @@ from typing import Callable, Tuple
 
 class AbstractBands(abc.ABC):
     """
-    Accepts a tuple of two-tuples.  Each two-tuple comprises two number-like elements:
-    an incremental threshold, and a percentage that applies until that incremental threshold is breached.
+    Accepts a tuple of two-tuples.
+    Each two-tuple comprises two number-like elements:
+    a) an incremental threshold, and
+    b) a percentage that applies until that incremental threshold is breached.
     """
 
     def __init__(
