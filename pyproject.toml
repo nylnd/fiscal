@@ -4,6 +4,7 @@ version = "0.2.2"
 description = ""
 authors = ["Chris Nyland <chris.nyland@gmail.com>"]
 readme = "README.md"
+homepage = "https://github.com/nylnd/fiscal"
 license = "BSD-3-Clause"
 
 [tool.poetry.dependencies]
